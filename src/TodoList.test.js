@@ -4,7 +4,6 @@ import { render } from '@testing-library/react';
 import TodoList from "./TodoList";
 
 
-
 describe('TodoList Component', () => {
   it('should render', () => {
     const {getByTestId} = render(<TodoList />);
@@ -19,5 +18,10 @@ describe('TodoList Component', () => {
   it('should have a form', () => {
     const {getByPlaceholderText} = render(<TodoList />);
     expect(getByPlaceholderText('Enter a task')).toBeInTheDocument();
+  })
+
+  it('should have a submit button for the form', () => {
+    const {getByText} = render(<TodoList />);
+    expect(getByText('Submit')).toBeInTheDocument();
   })
 })
